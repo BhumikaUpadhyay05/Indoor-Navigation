@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Indoor Navigation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 30px;
+      }
+      select,
+      button {
+        padding: 8px;
+        margin: 10px;
+        font-size: 16px;
+      }
+      img {
+        margin-top: 25px;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Indoor Navigation System</h1>
+
+    <form method="POST">
+      <label>Start:</label>
+      <select name="start">
+        {% for l in landmarks %}
+        <option value="{{ l }}">{{ l }}</option>
+        {% endfor %}
+      </select>
+
+      <label>Destination:</label>
+      <select name="goal">
+        {% for l in landmarks %}
+        <option value="{{ l }}">{{ l }}</option>
+        {% endfor %}
+      </select>
+
+      <br />
+      <button type="submit">Plan Path</button>
+    </form>
+
+    {% if message %}
+    <p style="color: red; font-weight: bold">{{ message }}</p>
+    {% endif %} {% if image %}
+    <h2>Computed Path</h2>
+    <img src="data:image/png;base64,{{ image }}" />
+    {% endif %}
+  </body>
+</html>

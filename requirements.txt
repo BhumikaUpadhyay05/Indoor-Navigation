@@ -1,0 +1,7 @@
+Flask
+numpy
+networkx
+matplotlib
+numpy 
+pandas
+scikit-learn
